@@ -5,11 +5,9 @@ node {
   stage('SonarQube Analysis') {
     def scannerHome = tool 'SonarScanner for MSBuild'
     withSonarQubeEnv() {
-      sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"Pet-Clinic\""
+      sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"PetClinic\""
       sh "dotnet build"
       sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"
     }
   }
 }
-
-
